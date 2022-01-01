@@ -1,10 +1,9 @@
 import React from 'react'
-import Example from './login' 
 
 const App = () => {
   return (
-    <div className='App'>
-     <Example/>
+    <div className='App'> 
+    <h1 className='text-rose-900 underline '>hello world</h1>    
     </div>
   )
 }
