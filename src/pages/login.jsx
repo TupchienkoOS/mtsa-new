@@ -1,4 +1,6 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useReducer } from "react"
+import { useSelector, useDispatch } from "react-redux";
+import { login } from "../features/login/loginSlice";
 
 export default () => {
 
@@ -9,6 +11,25 @@ export default () => {
     setBodyClass();
     setHTMLTagClass();
   });
+
+  const [inputValues, setInputValues] = useReducer(
+    (state, newState) => ({ ...state, ...newState }),
+    { email: '', password: '' }
+  );
+
+  const handleOnChange = event => {
+    const { name, value } = event.target;
+    setInputValues({ [name]: value });
+  };
+  const dispatch = useDispatch()
+
+  const handleSubmit = () => {
+    console.log(inputValues)
+    dispatch(login(inputValues))
+  }
+
+  const { email, password } = inputValues
+
 
   return (<>
 
@@ -41,8 +62,10 @@ export default () => {
                   name="email"
                   type="email"
                   autoComplete="email"
+                  value={email}
                   required
                   className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  onChange={handleOnChange}
                 />
               </div>
             </div>
@@ -58,7 +81,9 @@ export default () => {
                   type="password"
                   autoComplete="current-password"
                   required
+                  value={password}
                   className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  onChange={handleOnChange}
                 />
               </div>
             </div>
@@ -87,6 +112,7 @@ export default () => {
               <button
                 type="submit"
                 className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                onClick={handleSubmit}
               >
                 Sign in
               </button>
