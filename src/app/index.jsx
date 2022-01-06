@@ -1,6 +1,4 @@
 import React from 'react'
-import Login from '../pages/login'
-import Profile from '../pages/profile'
 import { withProviders } from './providers/index'
 import { Routing } from '../pages/index'
 
