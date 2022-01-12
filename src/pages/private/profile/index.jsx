@@ -59,7 +59,7 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-export default () => {
+export const Profile = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false)
     const setBodyClass = () => { document.body.classList.add("h-full"); }
     const setHTMLTagClass = () => { document.getElementsByTagName("html")[0].className = "h-full bg-white"; }

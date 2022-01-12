@@ -1,6 +1,6 @@
 import { useState, useEffect, useReducer } from "react"
 import { useSelector, useDispatch } from "react-redux";
-import { login } from "../features/login/loginSlice";
+import { login } from "../src/features/login/loginSlice";
 
 export default () => {
 
