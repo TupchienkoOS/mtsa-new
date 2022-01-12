@@ -11,7 +11,9 @@ export const Routing = () => {
     } = useAuth0();
 
     if (isLoading) {
-        return <div>Loading...</div>;
+        return (<div class=" flex justify-center mt-48">
+            <div class="animate-spin rounded-full h-32 w-32 border-b-2 border-violet-900"></div>
+        </div>)
     }
     console.log(isAuthenticated)
     return (
