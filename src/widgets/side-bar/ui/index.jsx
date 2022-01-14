@@ -2,6 +2,7 @@ import { Fragment, useState } from 'react'
 import { ClockIcon, HomeIcon, ViewListIcon, XIcon } from '@heroicons/react/outline'
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import { SearchIcon, SelectorIcon } from '@heroicons/react/solid'
+import { classNames } from '../../../shared/utils'
 
 const navigation = [
     { name: 'Home', href: '#', icon: HomeIcon, current: true },
@@ -15,10 +16,6 @@ const teams = [
 ]
 
 const SideBar = () => {
-
-    function classNames(...classes) {
-        return classes.filter(Boolean).join(' ')
-    }
 
     const [sidebarOpen, setSidebarOpen] = useState(false)
     return (
