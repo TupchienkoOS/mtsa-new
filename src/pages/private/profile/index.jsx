@@ -2,7 +2,6 @@ import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import { ClockIcon, HomeIcon, MenuAlt1Icon, ViewListIcon, XIcon } from '@heroicons/react/outline'
 import { ChevronRightIcon, DotsVerticalIcon, SearchIcon, SelectorIcon } from '@heroicons/react/solid'
-import { useAuth0 } from "@auth0/auth0-react";
 import { Header } from '../../../widgets/header';
 import { SideBar } from '../../../widgets/side-bar'
 import { typicodeApi } from '../../../shared/api';
@@ -16,17 +15,6 @@ const pinnedCompanies = companies.filter((project) => project.pinned)
 
 
 export const Profile = () => {
-
-
-    const setBodyClass = () => { document.body.classList.add("h-full"); }
-    const setHTMLTagClass = () => { document.getElementsByTagName("html")[0].className = "h-full bg-white"; }
-
-    useEffect(() => {
-        setBodyClass();
-        setHTMLTagClass();
-    });
-
-    const { logout } = useAuth0();
     return (
         <>
             <div className="min-h-full">

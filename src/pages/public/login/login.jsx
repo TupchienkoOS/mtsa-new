@@ -1,19 +1,10 @@
-import { useState, useEffect, useReducer } from "react"
+
 import { useAuth0 } from "@auth0/auth0-react";
-import { Navigate } from "react-router";
 
 export default () => {
 
 
   const { loginWithRedirect, isAuthenticated } = useAuth0();
-
-  const setBodyClass = () => { document.body.classList.add("h-full"); }
-  const setHTMLTagClass = () => { document.getElementsByTagName("html")[0].className = "h-full bg-white"; }
-
-  useEffect(() => {
-    setBodyClass();
-    setHTMLTagClass();
-  });
 
   return (
     <>

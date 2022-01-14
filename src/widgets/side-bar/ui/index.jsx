@@ -3,6 +3,7 @@ import { ClockIcon, HomeIcon, ViewListIcon, XIcon } from '@heroicons/react/outli
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import { SearchIcon, SelectorIcon } from '@heroicons/react/solid'
 import { classNames } from '../../../shared/utils'
+import { useAuth0 } from "@auth0/auth0-react";
 
 const navigation = [
     { name: 'Home', href: '#', icon: HomeIcon, current: true },
@@ -16,6 +17,8 @@ const teams = [
 ]
 
 const SideBar = () => {
+
+    const { logout } = useAuth0();
 
     const [sidebarOpen, setSidebarOpen] = useState(false)
     return (
